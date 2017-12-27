@@ -1,0 +1,197 @@
+\documentclass[11pt,pointlessnumbers, abstraction, headsepline]{article}
+% define
+% =pretitle
+% =title
+% =subtitle
+
+\usepackage{lmodern}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=2.75cm,headheight=1cm,headsep=0.666cm,footskip=1cm}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage[english]{babel}
+
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{pdfpages}
+
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{setspace}
+\setstretch{1.1}
+\usepackage[unicode=true, 
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=true,bookmarksopenlevel=2,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=black,
+  pdftitle={=title},
+  pdfauthor={Otto + Anna + Hannah + Dominik + Philipp + Pauline},
+  pdfsubject={=subtitle},
+  pdfcreator={Otto Richter},
+  pdfkeywords={Script} {Bundesfremdsprachenwettbewerb}
+}
+
+\makeatletter
+
+\providecommand{\LyX}{L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+\providecommand{\tabularnewline}{\\}
+\newenvironment{lyxcode}
+{\par\begin{list}{}{
+\setlength{\rightmargin}{\leftmargin}
+\setlength{\listparindent}{0pt}
+\raggedright
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt}
+\normalfont\srfamily}
+ \item[]}
+{\end{list}}
+\renewcommand*{\familydefault}{\sfdefault}
+\usepackage[automark]{scrpage2}
+
+\usepackage{multicol} %% Mehrspaltenlayout
+\usepackage{color} %% Farben
+\usepackage{booktabs, longtable} %% Schönere Tabellen
+\usepackage{microtype} %% Schönerer Blocksatz
+
+%% Mehr Platz zwischen Überschrift und Tabelle
+\newcommand{\@ldtable}{}
+\let\@ldtable\table
+\renewcommand{\table}{ %
+    \setlength{\@tempdima}{\abovecaptionskip} %
+    \setlength{\abovecaptionskip}{\belowcaptionskip} %
+    \setlength{\belowcaptionskip}{\@tempdima} %
+    \@ldtable %
+}
+
+%% Verschiedene Symbole und Zeichen wie (c), €
+\usepackage{textcomp}
+
+%% Fehlerkorrektur für Marginalien
+\usepackage{fixltx2e, mparhack}
+
+%% Deutsche Kurzfassung und englisches Abstract auf eine Seite
+\renewenvironment{abstract}{
+    \@beginparpenalty\@lowpenalty
+        \begin{center}
+            \normalfont\sectfont\nobreak\abstractname
+        \end{center}
+    \@endparpenalty\@M
+}{
+    \par
+}
+
+%% Alle Seiten vor dem Inhaltsverzeichnis sind römisch nummeriert
+\pagenumbering{roman}
+\let\myTOC\tableofcontents
+\renewcommand\tableofcontents{
+    \begin{spacing}{1.1}
+    \myTOC
+    \end{spacing}
+    \clearpage
+    \pagenumbering{arabic}
+}
+
+%% Kopfzeile um Logo ergänzen
+\clearscrheadfoot
+\ohead{\\\headmark}
+
+\ofoot[\pagemark]{\pagemark}
+
+%% Randnotizen anpassen
+\setlength{\marginparwidth}{22mm}
+\let \oldmarginpar = \marginpar
+\renewcommand{\marginpar}[1]{%
+    \-\oldmarginpar[\raggedleft\footnotesize\sf #1]%
+        {\raggedright\footnotesize\sf #1%
+    }}
+
+%% Zitate am Kapitelanfang
+%\usepackage{epigraph}
+%\setlength{\epigraphwidth}{9cm}
+
+%% Code-Block-Formatierung
+\lstdefinestyle{default}{ %
+    backgroundcolor={\color[rgb]{0.95,0.95,0.95}}, %
+    basicstyle={\small\srfamily}, %
+    breaklines=true, %
+    frame=l, %
+    language={[Sharp]C}, %
+    lineskip=-0.1pt, %
+    numbers=left, %
+    rulecolor={\color[rgb]{0.5,0.5,0.5}}, %
+    xleftmargin={0.75cm}, %
+    xrightmargin={0cm} %
+}
+
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%		Übersetzungen könnten so aussehen: 							  %%
+%%		Sodass zum Beispiel der Name für Inhaltsverzeichnis gesetzt wird			  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addto\captionsenglish{% Replace "english" with the language you use					  %%
+ \renewcommand{\contentsname}%										  %%
+  {Table of contents}%										  %%
+ %{Protokolle }%alternativ										  %%
+}													  %%
+													  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\dir}{\textit}
+
+\newcommand{\dir}[1]{\leavevmode\setlength\parindent{10pt}\indent{$\rightarrow$ \textit{#1}}}
+\begin{document}
+
+
+\titlepage
+
+\begin{center}
+
+
+\par\end{center}
+
+\noindent \begin{center}
+\textsf{\textbf{\Large =pretitle}}\\
+\vspace{1cm}
+
+\par\end{center}
+
+\noindent \begin{center}
+\textsf{\textbf{\huge =title}}\textsf{}\\
+\textsf{}\\
+\textsf{\Large =subtitle}
+\vfill
+\begin{tabularx}{\textwidth}{|r|X|}
+ \hline
+ Actor: & \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \tabularnewline \hline
+ Created at: & \today \tabularnewline \hline
+\end{tabularx}
+
+
+
+\par\end{center}{\Large \par}
+
+\newpage
+
+\tableofcontents{}
+
+\pagestyle{scrheadings}    %Kopfzeile
+\ihead{=title\vspace{0.75cm}}
+%\chead{\hfill Otto Richter, 9B\vspace{0.75cm}}
+
+\begin{spacing}{0.8}
