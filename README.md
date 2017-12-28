@@ -16,10 +16,17 @@ If you input a screenplay file (actually it's LaTeX but it is very easy to write
 
 ## How to use it?
 Oh ... you will need Linux or another way to run the shell script ... 
+
 The script uses some commands like sed. You will need to install it (you can usually use your package manager). The other commands should be common.
+
 You will need to be able to run PHP from the command line. Some package with php-cli should do that job.
+
 You will need some stuff to run the LaTeX commands. Don't ask me which packages you'll need, I do not know that by myself.
+
 Still questions? I will try to help you as much as I can.
 
 ## Something to remember?
 This tool was not intended for public use. It was just for me and it somehow did work. I found it a while ago and managed to get it working again and decided to do a rewrite. I do not know why I am posting this crap here but as you can see I just did it.
+
+## License?
+WTFPL: http://www.wtfpl.net/
