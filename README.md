@@ -23,6 +23,8 @@ You will need to be able to run PHP from the command line. Some package with php
 
 You will need some stuff to run the LaTeX commands. Don't ask me which packages you'll need, I do not know that by myself.
 
+You can specify a title and a subtitle in the build-classic.sh and you have to tell the script about all the actors in script/classic.php
+
 Still questions? I will try to help you as much as I can.
 
 ## Something to remember?
